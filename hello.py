@@ -46,7 +46,7 @@ class User(db.Model):
 
 class NameForm(FlaskForm):
     name = StringField("What is your name?", validators = [DataRequired()])
-    role = SelectField("Role?", choices = [('Administrator', 'Administrator'), ('Moderator', 'Moderator'), ('User', 'User')], validators = [DataRequired()])
+    role = SelectField("Role?:", choices = [('Administrator', 'Administrator'), ('Moderator', 'Moderator'), ('User', 'User')], validators = [DataRequired()])
     submit = SubmitField('Submit')
 
 class LoginForm(FlaskForm):
