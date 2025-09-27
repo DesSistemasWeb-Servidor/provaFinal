@@ -74,7 +74,7 @@ def index():
         session['name'] = form.name.data
         return redirect(url_for('index'))
     usuarios = User.query.all()
-    funcoes = Role.query.all()
+    funcoes = Role.query.order_by(Role.name).all()
     qtdUsuarios = User.query.count()
     qtdFuncoes = Role.query.count()
     return render_template('index.html', form=form, nome=session.get('name'), known=session.get('known', False), usuarios = usuarios, funcoes = funcoes, qtdUsuarios = qtdUsuarios, qtdFuncoes = qtdFuncoes)
