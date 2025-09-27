@@ -23,7 +23,7 @@
     </div>
     {{ wtf.quick_form(form) }}
     <h2>Relação de usuários cadastrados</h2>
-    <h4>Quantidade: {{ usuarios.query.count() }} </h4>
+    <h4>Quantidade: {{ usuarios.count() }} </h4>
     {% if usuarios %}
         <table class='table'>
             <thead>
@@ -41,7 +41,7 @@
         </table>
     {% endif %}
     <h2>Relação de funções cadastradas</h2>
-    <h4>Quantidade: {{ funcoes.query.count() }} </h4>
+    <h4>Quantidade: {{ funcoes.count() }} </h4>
     {% if usuarios %}
         <table class='table'>
             <thead>
