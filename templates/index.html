@@ -52,13 +52,13 @@
                 {% for i in funcoes %}
                     <tr>
                         <td>{{ i.name }}</td>
-                        {% for j in i.users.all() %}
-                            <td>
-                                <ol>
+                        <td>
+                            <ol>
+                                {% for j in i.users.all() %}
                                     <li>{{ j.username }}</li>
-                                </ol>
-                            </td>
-                        {% endfor %}
+                                {% endfor %}
+                            </ol>
+                        </td>
                     </tr>
                 {% endfor %}
             </tbody>
