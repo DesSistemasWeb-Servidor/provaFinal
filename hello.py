@@ -75,7 +75,9 @@ def index():
         return redirect(url_for('index'))
     usuarios = User.query.all()
     funcoes = Role.query.all()
-    return render_template('index.html', form=form, nome=session.get('name'), known=session.get('known', False), usuarios = usuarios, funcoes = funcoes)
+    qtdUsuarios = User.query.count()
+    qtdFuncoes = Role.query.count()
+    return render_template('index.html', form=form, nome=session.get('name'), known=session.get('known', False), usuarios = usuarios, funcoes = funcoes, qtdUsuarios = qtdUsuarios, qtdFuncoes = qtdFuncoes)
 
 @app.route('/login', methods=['GET','POST'])
 def login():
