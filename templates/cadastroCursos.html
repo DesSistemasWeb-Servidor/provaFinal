@@ -9,56 +9,19 @@
 
 {% block page_content %}
 <div class="scroll">
-    <div class="page-header">
-        {% if nome %}
-            <h1>Olá, {{nome}}!</h1>
-        {% else %}
-            <h1>Olá, Estranho!</h1>
-        {% endif %}
-        {% if known %}
-            <p>Feliz em vê-lo novamente!</p>
-        {% else %}
-            <p>Prazer em conhecê-lo!</p>
-        {% endif %}
-    </div>
     {{ wtf.quick_form(form) }}
-    <h2>Relação de usuários cadastrados</h2>
-    <h4>Quantidade: {{ qtdUsuarios }} </h4>
+    <h2>Relação de cursos cadastrados</h2>
     {% if usuarios %}
         <table class='table'>
             <thead>
-                <th>Nome do usuário</th>
-                <th>Função</th>
+                <th>Curso</th>
+                <th>Descrição</th>
             </thead>
             <tbody>
-                {% for i in usuarios %}
+                {% for i in cursos %}
                     <tr>
-                        <td>{{ i.username }}</td>
-                        <td>{{ i.role.name }}</td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    {% endif %}
-    <h2>Relação de funções cadastradas</h2>
-    <h4>Quantidade: {{ qtdFuncoes }} </h4>
-    {% if usuarios %}
-        <table class='table'>
-            <thead>
-                <th>Funções</th>
-                <th>Usuários</th>
-            </thead>
-            <tbody>
-                {% for i in funcoes %}
-                    <tr>
-                        <td>{{ i.name }}</td>
-                        <td>
-                            <ol>
-                                {% for j in i.users.all() %}
-                                    <li>{{ j.username }}</li>
-                                {% endfor %}
-                            </ol>
-                        </td>
+                        <td>{{ i.nome }}</td>
+                        <td>{{ i.descricao }}</td>
                     </tr>
                 {% endfor %}
             </tbody>
