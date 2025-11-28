@@ -53,7 +53,7 @@ class Curso(db.Model):
 class NameForm(FlaskForm):
     name = StringField("Qual é o nome do curso?", validators = [DataRequired()])
     descricao = TextAreaField('Descrição (250 caracteres)', validators = [DataRequired()])
-    submit = SubmitField('Submit')
+    submit = SubmitField('Cadastrar')
 
 @app.shell_context_processor
 def make_shell_context():
