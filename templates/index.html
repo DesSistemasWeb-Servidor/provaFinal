@@ -1,18 +1,19 @@
 {% extends 'base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+<style>
+    .scroll {
+      overflow-y: auto;
+    }
+</style>
+
+{% block title %}Avaliação semestral{% endblock %}
+
 {% block page_content %}
-  {% if nome, prontuario, instituicao %}
-    <br>
-    <h1>Olá, {{nome}}!</h1>
-    <hr>
-    <h2>Prontuário: {{prontuario}}</h2>
-    <h2>Instituição: {{instituicao}}</h2>
-  {% elif nome %}
-    <br>
-    <h1>Olá, {{nome}}!</h1>
-    <hr>
-  {% else %}
-    <br>
-    <h1>Olá, estranho!</h1>
-    <hr>
-  {% endif %}
+    <div class="page-header">
+        <h1>Avaliação semestral</h1>
+        <h3>Aluno: Giovanna Karolline Menezes Ribeiro</h3>
+        <h3>Prontuário: PT303304X</h3>
+    </div>
+<p>A data e hora local é {{moment(current_time).format('LLL')}}</p>
 {% endblock %}
