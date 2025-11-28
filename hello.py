@@ -79,3 +79,7 @@ def cadastroCursos():
 @app.route('/')
 def index():
     return render_template('index.html', current_time = datetime.utcnow())
+
+@app.route('/indisponivel')
+def indisponivel():
+    return render_template('indisponivel.html', current_time = datetime.utcnow())
