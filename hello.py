@@ -68,13 +68,9 @@ def cadastroCursos():
             curso = Curso(nome=form.name.data, descricao=form.descricao.data)
             db.session.add(curso)
             db.session.commit()
-            session['known'] = False
-        else:
-            session['known'] = True
-        session['name'] = form.name.data
         return redirect(url_for('cadastroCursos'))
     cursos = Curso.query.order_by(Curso.nome).all()
-    return render_template('cadastroCursos.html', form=form, nome=session.get('name'), known=session.get('known', False), cursos=cursos)
+    return render_template('cadastroCursos.html', form=form, cursos=cursos)
 
 @app.route('/')
 def index():
