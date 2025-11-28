@@ -72,8 +72,8 @@ def cadastroCursos():
         else:
             session['known'] = True
         session['name'] = form.name.data
-        return redirect(url_for('index'))
-    cursos = Curso.query.order_by(Role.name).all()
+        return redirect(url_for('cadastroCursos'))
+    cursos = Curso.query.order_by(Curso.nome).all()
     return render_template('cadastroCursos.html', form=form, nome=session.get('name'), known=session.get('known', False), cursos=cursos)
 
 @app.route('/')
