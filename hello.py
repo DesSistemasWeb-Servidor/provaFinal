@@ -60,7 +60,7 @@ def make_shell_context():
     return dict(db=db, User=User, Role=Role)
 
 @app.route('/cursos', methods=['GET','POST'])
-def index():
+def cadastroCursos():
     form = NameForm()
     if form.validate_on_submit():
         curso = Curso.query.filter_by(nome=form.name.data).first()
@@ -78,4 +78,4 @@ def index():
 
 @app.route('/')
 def index():
-    return render_template('user.html')
+    return render_template('user.html', current_time = datetime.utcnow())
